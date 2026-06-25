@@ -1,0 +1,1380 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #080c1a;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.sectionHeader h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.sectionSub {
+  font-size: 1.1rem;
+  color: #999;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  gap: 8px;
+}
+
+.whatsappIcon {
+  width: 1.05em;
+  height: 1.05em;
+  flex-shrink: 0;
+}
+
+.btnWhatsApp {
+  background: #25D366;
+  color: #000;
+}
+
+.btnWhatsApp:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #1a56db, #3b82f6);
+  color: #000;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 86, 219, 0.35);
+}
+
+.btnInstagram {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff;
+}
+
+.btnInstagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(131, 58, 180, 0.3);
+}
+
+.btnLarge {
+  padding: 18px 48px;
+  font-size: 1.1rem;
+  border-radius: 14px;
+}
+
+.btnHeader {
+  background: #25D366;
+  color: #000;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.btnHeader:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  background: transparent;
+}
+
+header.scrolled {
+  background: rgba(6, 10, 24, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.headerInner {
+  display: grid;
+  grid-template-columns: 280px 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logoImg {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  min-width: 0;
+}
+
+#menu {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  min-width: 0;
+}
+
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #bbb;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1a56db;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: #fff;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+#hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+#hamburger span {
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+#hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heroLeft h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.heroSub {
+  font-size: 1.15rem;
+  color: #bbb;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.heroText {
+  font-size: 0.95rem;
+  color: #777;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.heroSeals {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.seal {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: rgba(26, 86, 219, 0.12);
+  color: #1a56db;
+  border: 1px solid rgba(26, 86, 219, 0.2);
+}
+
+.watchCard {
+  background: linear-gradient(145deg, #0f1428, #141c38);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.watchCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(26, 86, 219, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.watchCircle {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: conic-gradient(from 90deg, #141c38, #1c2a50, #141c38);
+  border: 3px solid rgba(26, 86, 219, 0.3);
+  margin: 0 auto 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 30px rgba(26, 86, 219, 0.1), inset 0 0 30px rgba(26, 86, 219, 0.03); }
+  50% { box-shadow: 0 0 60px rgba(26, 86, 219, 0.2), inset 0 0 50px rgba(26, 86, 219, 0.06); }
+}
+
+.watchBrand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a56db;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.watchDial {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #0c1428;
+  border: 2px solid rgba(26, 86, 219, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.watchDialInner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1c2a50, #0c1428);
+  border: 1px solid rgba(26, 86, 219, 0.15);
+  position: relative;
+}
+
+.watchDialInner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #1a56db;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(30deg);
+  border-radius: 1px;
+}
+
+.watchDialInner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5px;
+  height: 14px;
+  background: #1a56db;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(120deg);
+  border-radius: 1px;
+}
+
+.watchDesc {
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.watchHighlights {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.watchHighlight {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.5px;
+}
+
+#produtos {
+  background: #0a1025;
+  padding-top: 34px;
+}
+
+.produtosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.produtoCard {
+  background: #0f1628;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.produtoCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(26, 86, 219, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.produtoImage {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.produtoImageBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(26, 86, 219, 0.08), transparent 60%);
+}
+
+.produtoImageContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.produtoImageContent .watchIcon {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a56db;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.produtoImageContent .watchColor {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.produtoFoto {
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 58%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.produtoBadge {
+  display: block;
+  padding: 5px 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(37, 211, 102, 0.12);
+  color: #25D366;
+  border-bottom: 1px solid rgba(37, 211, 102, 0.15);
+}
+
+.produtoInfo {
+  padding: 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.produtoInfo h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.produtoInfo p {
+  font-size: 0.82rem;
+  color: #888;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.produtoPrice {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a56db;
+  margin-bottom: 12px;
+}
+
+.produtoActions {
+  display: flex;
+  gap: 8px;
+}
+
+.produtoActions .btn {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  border-radius: 8px;
+}
+
+.btnDetails {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnDetails:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  z-index: 2001;
+  width: min(90%, 520px);
+  max-height: 85vh;
+  background: #0f1628;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+}
+
+#modal.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#modalContent {
+  position: relative;
+  padding: 56px 40px 40px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+#modalClose {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #aaa;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  z-index: 3;
+}
+
+#modalClose:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+#modalBody h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.modalProductImage {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #0a1025, #141c38);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modalProductImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  display: block;
+}
+
+.modalProductPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.modalProductPlaceholder .watchIcon {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a56db;
+  letter-spacing: 4px;
+}
+
+.modalProductPlaceholder .watchColor {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.modalDesc {
+  font-size: 0.95rem;
+  color: #999;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.modalPrice {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a56db;
+  margin-bottom: 24px;
+}
+
+.modalFeatures {
+  margin-bottom: 28px;
+}
+
+.modalFeatures h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.modalFeatures ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modalFeatures li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.modalFeatures li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a56db;
+  flex-shrink: 0;
+}
+
+.modalWhatsBtn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #25D366;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modalWhatsBtn:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+#beneficios {
+  background: #0a1025;
+  padding-top: 34px;
+}
+
+.beneficiosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.beneficioCard {
+  background: #0f1628;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.beneficioCard:hover {
+  border-color: rgba(26, 86, 219, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.beneficioIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(26, 86, 219, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.beneficioIcon svg {
+  width: 24px;
+  height: 24px;
+  color: #1a56db;
+}
+
+.beneficioCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.beneficioCard p {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.6;
+}
+
+#comoComprar {
+  background: #080c1a;
+  padding-top: 34px;
+}
+
+.passosGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 40px;
+}
+
+.passoCard {
+  background: #0f1628;
+  border-radius: 16px;
+  padding: 36px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  flex: 1;
+  max-width: 320px;
+  transition: all 0.3s ease;
+}
+
+.passoCard:hover {
+  border-color: rgba(26, 86, 219, 0.15);
+  transform: translateY(-4px);
+}
+
+.passoNum {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a56db, #3b82f6);
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.passoCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.passoCard p {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.6;
+}
+
+.passoConnector {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(26, 86, 219, 0.3), rgba(26, 86, 219, 0.1));
+  flex-shrink: 0;
+}
+
+.aviso {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#ctaFinal {
+  background: linear-gradient(135deg, #0a1025, #111830);
+  position: relative;
+  overflow: hidden;
+}
+
+#ctaFinal::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.ctaInner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaInner h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.ctaInner p {
+  font-size: 1.1rem;
+  color: #999;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+#contato {
+  background: #0a1025;
+  padding-top: 34px;
+}
+
+.contatoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.contatoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contatoItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #0f1628;
+  padding: 18px 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contatoItem svg {
+  width: 24px;
+  height: 24px;
+  color: #1a56db;
+  flex-shrink: 0;
+}
+
+.contatoItem div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contatoItem strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.contatoItem span {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.contatoActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#footer {
+  background: #060a18;
+  padding: 60px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footerInner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footerLogoImg {
+  height: 64px;
+  width: auto;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footerBrand .footerLogo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footerBrand p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.footerTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footerLinks,
+.footerSocial {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerLinks a,
+.footerSocial a {
+  font-size: 0.9rem;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.footerSocial a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footerLinks a:hover,
+.footerSocial a:hover {
+  color: #1a56db;
+}
+
+.footerCopy {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footerCopy p {
+  font-size: 0.82rem;
+  color: #555;
+}
+
+.footerFeito {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.footerFeito strong {
+  color: #1a56db;
+  font-weight: 600;
+}
+
+#whatsappFloat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  animation: floatPulse 2s ease-in-out infinite;
+}
+
+#whatsappFloat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+}
+
+#whatsappFloat svg {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes floatPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@media (max-width: 1024px) {
+  .headerInner {
+    grid-template-columns: 230px 1fr auto;
+    gap: 20px;
+  }
+
+  .logoImg {
+    height: 58px;
+  }
+
+  #menu {
+    gap: 18px;
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .heroLeft h1 {
+    font-size: 2.4rem;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroSeals {
+    justify-content: center;
+  }
+
+  .watchCard {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .beneficiosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .passosGrid {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .passoConnector {
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(180deg, rgba(26, 86, 219, 0.3), rgba(26, 86, 219, 0.1));
+  }
+
+  .passoCard {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+
+  .headerInner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+
+  #produtos,
+  #beneficios,
+  #comoComprar,
+  #contato {
+    padding-top: 30px;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.8rem;
+  }
+
+  #menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(6, 10, 24, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 80px 32px 32px;
+    gap: 20px;
+    transition: right 0.3s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 998;
+  }
+
+  #menu.open {
+    right: 0;
+  }
+
+  #menu .navLink {
+    font-size: 1.1rem;
+  }
+
+  .btnHeader {
+    display: none;
+  }
+
+  #hamburger {
+    display: flex;
+    z-index: 999;
+  }
+
+  .heroLeft h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroSub {
+    font-size: 1rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroActions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .watchCircle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .watchDial {
+    width: 90px;
+    height: 90px;
+  }
+
+  .watchDialInner {
+    width: 46px;
+    height: 46px;
+  }
+
+  .produtosGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .beneficiosGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaInner h2 {
+    font-size: 1.8rem;
+  }
+
+  .btnLarge {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+
+  .footerInner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footerBrand {
+    align-items: center;
+  }
+
+  .footerLogoImg {
+    margin: 0 auto 12px;
+  }
+
+  .footerLinks,
+  .footerSocial {
+    align-items: center;
+  }
+
+  #modal {
+    width: 95%;
+  }
+
+  #modalContent {
+    padding: 52px 28px 28px;
+  }
+
+  .modalProductImage {
+    height: 240px;
+  }
+
+  .produtoActions {
+    flex-direction: column;
+  }
+
+  .btnDetails {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 50px 0;
+  }
+
+  .modalProductImage {
+    height: 210px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .heroLeft h1 {
+    font-size: 1.5rem;
+  }
+
+  .watchCard {
+    padding: 24px;
+  }
+}
