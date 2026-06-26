@@ -275,10 +275,7 @@ header.scrolled {
 }
 
 .heroInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  max-width: 720px;
   position: relative;
   z-index: 1;
 }
@@ -327,127 +324,6 @@ header.scrolled {
   background: rgba(26, 86, 219, 0.12);
   color: #1a56db;
   border: 1px solid rgba(26, 86, 219, 0.2);
-}
-
-.watchCard {
-  background: linear-gradient(145deg, #0f1428, #141c38);
-  border-radius: 24px;
-  padding: 40px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  position: relative;
-  overflow: hidden;
-}
-
-.watchCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(ellipse at center, rgba(26, 86, 219, 0.05), transparent 70%);
-  pointer-events: none;
-}
-
-.watchCircle {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: conic-gradient(from 90deg, #141c38, #1c2a50, #141c38);
-  border: 3px solid rgba(26, 86, 219, 0.3);
-  margin: 0 auto 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 30px rgba(26, 86, 219, 0.1), inset 0 0 30px rgba(26, 86, 219, 0.03); }
-  50% { box-shadow: 0 0 60px rgba(26, 86, 219, 0.2), inset 0 0 50px rgba(26, 86, 219, 0.06); }
-}
-
-.watchBrand {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1a56db;
-  letter-spacing: 4px;
-  margin-bottom: 12px;
-}
-
-.watchDial {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: #0c1428;
-  border: 2px solid rgba(26, 86, 219, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.watchDialInner {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #1c2a50, #0c1428);
-  border: 1px solid rgba(26, 86, 219, 0.15);
-  position: relative;
-}
-
-.watchDialInner::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2px;
-  height: 20px;
-  background: #1a56db;
-  transform-origin: bottom center;
-  transform: translate(-50%, -100%) rotate(30deg);
-  border-radius: 1px;
-}
-
-.watchDialInner::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1.5px;
-  height: 14px;
-  background: #1a56db;
-  transform-origin: bottom center;
-  transform: translate(-50%, -100%) rotate(120deg);
-  border-radius: 1px;
-}
-
-.watchDesc {
-  font-size: 1rem;
-  color: #999;
-  margin-bottom: 20px;
-}
-
-.watchHighlights {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.watchHighlight {
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.05);
-  color: #aaa;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  letter-spacing: 0.5px;
 }
 
 #produtos {
@@ -1182,11 +1058,6 @@ header.scrolled {
     justify-content: center;
   }
 
-  .watchCard {
-    max-width: 380px;
-    margin: 0 auto;
-  }
-
   .beneficiosGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1285,21 +1156,6 @@ header.scrolled {
     max-width: 300px;
   }
 
-  .watchCircle {
-    width: 180px;
-    height: 180px;
-  }
-
-  .watchDial {
-    width: 90px;
-    height: 90px;
-  }
-
-  .watchDialInner {
-    width: 46px;
-    height: 46px;
-  }
-
   .produtosGrid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
@@ -1372,9 +1228,5 @@ header.scrolled {
 
   .heroLeft h1 {
     font-size: 1.5rem;
-  }
-
-  .watchCard {
-    padding: 24px;
   }
 }
